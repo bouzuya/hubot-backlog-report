@@ -2,10 +2,14 @@
 #   A Hubot script that display the backlog issues resolved in today.
 #
 # Dependencies:
-#   None
+#   "hubot-arm": "^0.2.0",
+#   "hubot-request-arm": "^0.2.1",
+#   "moment-timezone": "^0.2.1"
 #
 # Configuration:
-#   None
+#   HUBOT_BACKLOG_REPORT_SPACE_ID
+#   HUBOT_BACKLOG_REPORT_API_KEY
+#   HUBOT_BACKLOG_REPORT_TIMEZONE
 #
 # Commands:
 #   hubot backlog-report <project-key> [<user>] - display the backlog issues resolved in today
