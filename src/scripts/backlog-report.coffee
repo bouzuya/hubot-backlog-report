@@ -50,9 +50,18 @@ module.exports = (robot) ->
       get '/api/v2/issues', qs
     .then (r) ->
       message = 'backlog-report: ' + (user?.userId ? '') + '\n' +
-      r.json.map((i) ->
-        updated = moment(i.updated).tz(timezone).format('HH:mm')
+      r.json.sort((a, b) ->
+        if a.updated < b.updated
+          -1
+        else if a.updated is b.updated
+          0
+        else
+          1
+      ).map((i) ->
+        url = "#{baseUrl}/view/#{i.issueKey}"
+        updated = moment(i.updated).tz('Asia/Tokyo').format('HH:mm')
         hours = i.actualHours ? 0
-        "#{baseUrl}/view/#{i.issueKey} #{updated} #{hours}h #{i.summary}"
+        u = if user?.userId then '' else (i?.assignee?.userId ? '')
+        "#{url} #{updated} #{hours}h #{u} #{i.summary}"
       ).join('\n')
       res.send message
