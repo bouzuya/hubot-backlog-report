@@ -2,6 +2,8 @@
 
 A Hubot script that display the backlog issues resolved in today.
 
+![](http://img.f.hatena.ne.jp/images/fotolife/b/bouzuya/20140906/20140906195131.gif)
+
 ## Installation
 
     $ npm install git://github.com/bouzuya/hubot-backlog-report.git
@@ -17,9 +19,9 @@ or
       hubot> hubot backlog-report <project-key> <user> - display the backlog issues resolved in today
 
     bouzuya> hubot backlog-report bouzuya bouzuya
-      hubot> 10:01 BOUZUYA-123 hoge
-             15:23 BOUZUYA-456 fuga
-             18:45 BOUZUYA-789 piyo
+      hubot> https://api-dev.backlog.jp/view/BOUZUYA-123 10:01 1h hoge
+             https://api-dev.backlog.jp/view/BOUZUYA-456 15:23 1h fuga
+             https://api-dev.backlog.jp/view/BOUZUYA-789 18:45 1h piyo
 
 ## Configuration
 
