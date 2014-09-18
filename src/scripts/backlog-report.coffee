@@ -50,6 +50,7 @@ module.exports = (robot) ->
         projectId: [projectId]
         statusId: [4] # resolved
         updatedSince: today
+        count: 100
       qs.assigneeId = [user.id] if user?
       get '/api/v2/issues', qs
     .then (r) ->
